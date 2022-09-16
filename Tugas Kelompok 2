@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] argh){
+        Scanner scan = new Scanner(System.in);
+
+        //input nama dari user
+        System.out.print("Masukan Nama Anda [1...25]: ");
+        String nama = scan.nextLine();
+
+        //input nim dari user
+        System.out.print("Masukan NIM Anda [harus 10 angka]: ");
+        int NIM = scan.nextInt();
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+        //output dari user
+        System.out.println("Registrasi Sukses");
+        System.out.println("Selamat Datang " + nama + " [NIM : " + NIM + " ]");
+
+        //awalan
+        System.out.println("Mari Belajar Macam-Macam Deret Bilangan...");
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+        //masukan angka
+        System.out.println("Masukan Sembarang Angka [5..20]: ");
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+        //hasil
+        System.out.println("Deret Bilangan");
+        System.out.println("##############");
+
+        //user option
+        System.out.println("Anda ingin Mengulang [Y/T]: ");
+
+        //jika ya
+
+        //jika tidak
+    }
+}
