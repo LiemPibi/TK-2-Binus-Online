@@ -2,64 +2,82 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] argh){
-        Scanner scan = new Scanner(System.in);
-
-        //input dari user
         Scanner inp = new Scanner(System.in);
-        System.out.println("Masukan Nama Anda [1...25]: "); String nama = inp.nextLine();
-        System.out.println("Masukkan NIM Anda [Harus 10 Angka] : "); int nim = inp.nextInt();
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        boolean ulang = true;
+        while (ulang) {
 
-        //output dari user
-        System.out.println("Registrasi Sukses");
-        System.out.println("Selamat Datang " + nama + " [NIM : " + nim + " ]");
+            //input dari user
+            System.out.println("Masukan Nama Anda [1...25]: ");
+            String nama = inp.nextLine();
+            System.out.println("Masukkan NIM Anda [Harus 10 Angka] : ");
+            int nim = inp.nextInt();
 
-        //awalan
-        System.out.println("Mari Belajar Macam-Macam Deret Bilangan...");
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            //NIM
+            if (nama.length()>25 || nama.length()<1 || String.valueOf(nim).length()!=10) {
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                System.out.println("REGISTRASI GAGAL SILAHKAN COBA LAGI");
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            }
+            else {
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                System.out.println("Registrasi Sukses");
+                System.out.println("Selamat datang " + nama + " [NIM: " + nim + "]");
 
-        //masukan angka
-        System.out.println("Masukan Sembarang Angka [5..20]: "); int x = inp.nextInt();
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+                //awalan
+                System.out.println("Mari Belajar Macam-Macam Deret Bilangan...");
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
-        //masukan angka ganji
-        int sementara=0, total=0;
-        System.out.println(x+" Bilangan Ganjil  = ");
-        for (int a=1;a<=x;a++)
-        {
-            sementara=(a*2)-1;
-            System.out.print(sementara+" ");
-            total = total+sementara;
+                //masukan angka
+                System.out.println("Masukan Sembarang Angka [5..20]: ");
+                int x = inp.nextInt();
+                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+                //masukan angka ganji
+                int sementara = 0, total = 0;
+                System.out.println(x + " Bilangan Ganjil  = ");
+                for (int a = 1; a <= x; a++) {
+                    sementara = (a * 2) - 1;
+                    System.out.print(sementara + " ");
+                    total = total + sementara;
+                }
+                System.out.println("\nTotal   = " + total + "\n");
+
+                total = 0;
+                sementara = 0;
+
+                //masukan angka genap
+                System.out.println(x + " Bilangan Genap  = ");
+                for (int a = 1; a < x; a++) {
+                    sementara = a * 2;
+                    System.out.print(sementara + " ");
+                    total = total + sementara;
+                }
+                System.out.println("\nTotal   = " + total + "\n");
+
+                total = 0;
+                sementara = 0;
+
+                //input bilangan fibonacci
+                System.out.println(x + " Bilangan Fibonacci  = ");
+                int b = 0, c = 1;
+                for (int a = 1; a < x; a++) {
+                    sementara = b + c;
+                    System.out.print(sementara + " ");
+                    b = c;
+                    c = sementara;
+                    total = total + sementara;
+                }
+                System.out.println("\nTotal   = " + total + "\n");
+                inp.nextLine();
+
+                //mengulang jika y dan selesaikan jika t
+                System.out.print("Anda mau ulang (y/t) : ");
+                String ygy = inp.nextLine();
+
+                ulang = ygy.equals("y");
+                System.out.println("Terima kasih telah menggunakan program ini :D");
+            }
+            inp.close();
         }
-        System.out.println("\nTotal   = "+ total +"\n");
-
-        total=0; sementara=0;
-
-        //masukan angka genap
-        System.out.println(x+" Bilangan Genap  = ");
-        for (int a=1;a<x;a++)
-        {
-            sementara = a*2;
-            System.out.print(sementara+" ");
-            total=total+sementara;
-        }
-        System.out.println("\nTotal   = "+ total +"\n");
-
-        total=0; sementara=0;
-
-        //input bilangan fibonacci
-        System.out.println(x+" Bilangan Fibonacci  = ");
-        int b=0,c=1;
-        for (int a=1;a<x;a++)
-        {
-            sementara=b+c;
-            System.out.print(sementara+" ");
-            b=c;
-            c=sementara;
-            total=total+sementara;
-        }
-        System.out.println("\nTotal   = "+ total +"\n");
-
-        //mengulang jika y dan selesaikan jika t
     }
 }
