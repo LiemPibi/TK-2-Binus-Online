@@ -7,77 +7,100 @@ public class main {
         while (ulang) {
 
             //input dari user
-            System.out.println("Masukan Nama Anda [1...25]: ");
+            System.out.print("Masukan Nama Anda [1...25]: ");
             String nama = inp.nextLine();
-            System.out.println("Masukkan NIM Anda [Harus 10 Angka] : ");
+            System.out.print("Masukkan NIM Anda [Harus 10 Angka] : ");
             int nim = inp.nextInt();
+            inp.nextLine();
 
-            //NIM
-            if (nama.length()>25 || nama.length()<1 || String.valueOf(nim).length()!=10) {
+            //Batasan Nama dan NIM
+            if (nama.length() > 25 || nama.length() < 1 || String.valueOf(nim).length() != 10) {
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
                 System.out.println("REGISTRASI GAGAL SILAHKAN COBA LAGI");
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-            }
-            else {
+            } else {
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
                 System.out.println("Registrasi Sukses");
                 System.out.println("Selamat datang " + nama + " [NIM: " + nim + "]");
-
-                //awalan
-                System.out.println("Mari Belajar Macam-Macam Deret Bilangan...");
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-
-                //masukan angka
-                System.out.println("Masukan Sembarang Angka [5..20]: ");
-                int x = inp.nextInt();
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-
-                //masukan angka ganji
-                int sementara = 0, total = 0;
-                System.out.println(x + " Bilangan Ganjil  = ");
-                for (int a = 1; a <= x; a++) {
-                    sementara = (a * 2) - 1;
-                    System.out.print(sementara + " ");
-                    total = total + sementara;
-                }
-                System.out.println("\nTotal   = " + total + "\n");
-
-                total = 0;
-                sementara = 0;
-
-                //masukan angka genap
-                System.out.println(x + " Bilangan Genap  = ");
-                for (int a = 1; a < x; a++) {
-                    sementara = a * 2;
-                    System.out.print(sementara + " ");
-                    total = total + sementara;
-                }
-                System.out.println("\nTotal   = " + total + "\n");
-
-                total = 0;
-                sementara = 0;
-
-                //input bilangan fibonacci
-                System.out.println(x + " Bilangan Fibonacci  = ");
-                int b = 0, c = 1;
-                for (int a = 1; a < x; a++) {
-                    sementara = b + c;
-                    System.out.print(sementara + " ");
-                    b = c;
-                    c = sementara;
-                    total = total + sementara;
-                }
-                System.out.println("\nTotal   = " + total + "\n");
-                inp.nextLine();
-
-                //mengulang jika y dan selesaikan jika t
-                System.out.print("Anda mau ulang (y/t) : ");
-                String ygy = inp.nextLine();
-
-                ulang = ygy.equals("y");
-                System.out.println("Terima kasih telah menggunakan program ini :D");
+                ulang = false;
             }
-            inp.close();
+        }
+
+        boolean back = true;
+        while (back){
+            //awalan
+            System.out.println("Mari Belajar Macam-Macam Deret Bilangan...");
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+            //masukan angka
+            int x = 0;
+            boolean ul = true;
+            while (ul){
+                System.out.print("Masukan Sembarang Angka [5..20]: ");
+                x = inp.nextInt();
+                inp.nextLine();
+                if (x<5||x>20){
+                    System.out.println("Angka Yang Anda Masukan Tidak Sesuai\n");
+                }
+                else {
+                    ul = false;
+                }
+
+            }
+
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
+            //masukan angka ganji
+            int sementara = 0, total = 0;
+            System.out.println(x + " Bilangan Ganjil  = ");
+            for (int a = 1; a <= x; a++) {
+                sementara = (a * 2) - 1;
+                System.out.print(sementara + " ");
+                total = total + sementara;
+            }
+            System.out.println("\nTotal   = " + total + "\n");
+
+            total = 0;
+            sementara = 0;
+
+            //masukan angka genap
+            System.out.println(x + " Bilangan Genap  = ");
+            for (int a = 1; a < x; a++) {
+                sementara = a * 2;
+                System.out.print(sementara + " ");
+                total = total + sementara;
+            }
+            System.out.println("\nTotal   = " + total + "\n");
+
+            total = 0;
+            sementara = 0;
+
+            //input bilangan fibonacci
+            System.out.println(x + " Bilangan Fibonacci  = ");
+            int b = 0, c = 1;
+            for (int a = 1; a < x; a++) {
+                sementara = b + c;
+                System.out.print(sementara + " ");
+                b = c;
+                c = sementara;
+                total = total + sementara;
+            }
+            System.out.println("\nTotal   = " + total + "\n");
+
+
+            //mengulang jika y dan selesaikan jika t
+            System.out.print("Anda mau ulang (y/t) : ");
+            String ygy = inp.nextLine();
+
+            if (ygy.equals("y")) {
+                back = true;
+                System.out.println();
+            } else if (ygy.equals("t")) {
+                System.out.println();
+                System.out.println("Terima kasih telah menggunakan program ini");
+                back = false;
+            }
+
         }
     }
 }
